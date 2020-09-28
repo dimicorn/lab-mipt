@@ -74,19 +74,16 @@ def unicorn(x,y,k):
     ellipse(s, (150,255,255), [x-28*k, y+54*k, 45*k,18*k])
     ellipse(s, (255,150,255), [x-26*k, y+61*k, 30*k,12*k])
     ellipse(s, (255,255,80), [x-28*k, y+68*k, 40*k,20*k])
+
 unicorn (200,400,1)
-l=pygame.Surface((600,700))
-l=pygame.transform.flip(s, 1, 0)
-rect(s, (2,2,2), (0,0,600, 700))
-s.set_colorkey((2,2,2))
-screen.blit(l, (0,0))
-
-
-
-unicorn(420,510, 0.7)
-pygame.transform.flip(screen,True, False)
+s=pygame.transform.flip(s, 1, 0)
 screen.blit(s, (0,0))
 
+rect(s, (2,2,2), (0,0, 600, 700)) #antidblicate
+s.set_colorkey((2,2,2))
+unicorn(420,510, 0.7)
+s=pygame.transform.flip(s, 0, 0)
+screen.blit(s, (0,1))
 pygame.display.update()
                                                                   
 clock = pygame.time.Clock()
